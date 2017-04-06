@@ -1,9 +1,15 @@
-import { GOOD_TAG_LIST, PARSED_GOOD_TAG_LIST, BAD_TAG_LIST_KEY_PAIR1, BAD_TAG_LIST_KEY_PAIR2 } from './constants.js'
+import { GOOD_COMMA_TAG_LIST, GOOD_PIPE_TAG_LIST, PARSED_GOOD_TAG_LIST, BAD_TAG_LIST_KEY_PAIR1, BAD_TAG_LIST_KEY_PAIR2 } from './constants.js'
 import cskvpp from '../cskvpp.js'
 
 describe('base tests', function() {
   it('should parse comma separated key value pair to an object', function () {
-    const parsed = cskvpp.parse(GOOD_TAG_LIST);
+    const parsed = cskvpp.parse(GOOD_COMMA_TAG_LIST);
+
+    expect(parsed).toMatchObject(PARSED_GOOD_TAG_LIST);
+  });
+
+  it('should parse pipe separated key value pair to an object with options override', function () {
+    const parsed = cskvpp.parse(GOOD_PIPE_TAG_LIST, { separator: '|' });
 
     expect(parsed).toMatchObject(PARSED_GOOD_TAG_LIST);
   });

@@ -1,11 +1,17 @@
-import { GOOD_TAG_LIST, PARSED_GOOD_TAG_LIST, BAD_TAG_LIST_KEY_PAIR1, BAD_TAG_LIST_KEY_PAIR2 } from './constants.js'
+import { GOOD_COMMA_TAG_LIST, GOOD_PIPE_TAG_LIST, PARSED_GOOD_TAG_LIST, BAD_TAG_LIST_KEY_PAIR1, BAD_TAG_LIST_KEY_PAIR2 } from './constants.js'
 import cskvpp from '../cskvpp.js'
 
 describe('base tests', function() {
   it('should stringify object to comma separated key value pair', function () {
     const stringified = cskvpp.stringify(PARSED_GOOD_TAG_LIST);
 
-    expect(stringified).toMatch(GOOD_TAG_LIST);
+    expect(stringified).toMatch(GOOD_COMMA_TAG_LIST);
+  });
+  
+  it('should stringify object to comma separated key value pair with joiner override', function () {
+    const stringified = cskvpp.stringify(PARSED_GOOD_TAG_LIST, { joiner: '|' });
+
+    expect(stringified).toMatch(GOOD_PIPE_TAG_LIST);
   });
 });
 
@@ -30,7 +36,7 @@ describe('allowed data types', function() {
   
   it('should not allow string input', function() {
     expect(function() {
-      cskvpp.stringify(GOOD_TAG_LIST);
+      cskvpp.stringify(GOOD_COMMA_TAG_LIST);
     }).toThrowError('Input should only be a string');
   });
 });

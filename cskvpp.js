@@ -2,7 +2,7 @@ function stringToNum(str) {
   return isNaN(str) ? str : parseFloat(str);
 }
 
-export function parse(input = '') {
+export function parse(input = '', options = { separator: ',' }) {
   const inputIsString = typeof input === 'string';
   const tags = {};
 
@@ -14,7 +14,7 @@ export function parse(input = '') {
     throw new Error('Input should only be a string');
   }
 
-  input.split(',').forEach(function(tag) {
+  input.split(options.separator).forEach(function(tag) {
     if ((tag.match(/=/g) || []).length !== 1) {
       throw new Error('Invalid tag list provided');
     }
@@ -27,7 +27,7 @@ export function parse(input = '') {
   return tags;
 };
 
-export function stringify(input = {}) {
+export function stringify(input = {}, options = { joiner: ',' }) {
   const inputIsObject = Object.prototype.toString.call(input) === '[object Object]';
 
   if (!inputIsObject) {
@@ -42,7 +42,7 @@ export function stringify(input = {}) {
     tags.push(`${ key }=${ value }`);
   }
 
-  return tags.join(',');
+  return tags.join(options.joiner);
 };
 
 export default { parse, stringify };

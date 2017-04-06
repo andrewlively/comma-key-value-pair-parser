@@ -1,6 +1,6 @@
 {
   "name": "cskvpp",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Comma Separated Key Value Pair Parser",
   "main": "index.js",
   "scripts": {
