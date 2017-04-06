@@ -1,9 +1,5 @@
-const cskvpp = require('../cskvpp.js');
-
-const GOOD_TAG_LIST = 'hello=world,test=123';
-const PARSED_GOOD_TAG_LIST = { hello: 'world', test: 123 };
-const BAD_TAG_LIST_KEY_PAIR1 = 'hello=world,test';
-const BAD_TAG_LIST_KEY_PAIR2 = 'hello=world,,test';
+import { GOOD_TAG_LIST, PARSED_GOOD_TAG_LIST, BAD_TAG_LIST_KEY_PAIR1, BAD_TAG_LIST_KEY_PAIR2 } from './constants.js'
+import cskvpp from '../cskvpp.js'
 
 describe('base tests', function() {
   it('should parse comma separated key value pair to an object', function () {
@@ -47,6 +43,12 @@ describe('allowed data types', function() {
   it('should not allow function input', function() {
     expect(function() {
       cskvpp.parse(function() {});
+    }).toThrowError('Input should only be a string');
+  });
+
+  it('should not allow object input', function() {
+    expect(function() {
+      cskvpp.parse({});
     }).toThrowError('Input should only be a string');
   });
 });
