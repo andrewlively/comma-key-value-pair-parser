@@ -1,0 +1,26 @@
+{
+  "name": "cskvpp",
+  "version": "0.0.1",
+  "description": "Comma Separated Key Value Pair Parser",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/jest",
+    "babel": "./node_modules/.bin/babel cskvpp.js --out-file index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewlively/cskvpp.git"
+  },
+  "author": "Andrew Lively <livelyar@ucmail.uc.edu>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/andrewlively/cskvpp/issues"
+  },
+  "homepage": "https://github.com/andrewlively/cskvpp#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-preset-env": "^1.3.2",
+    "eslint-plugin-jest": "^19.0.1",
+    "jest": "^19.0.2"
+  }
+}
