@@ -1,11 +1,12 @@
 {
   "name": "cskvpp",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Comma Separated Key Value Pair Parser",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/jest",
-    "babel": "./node_modules/.bin/babel cskvpp.js --out-file index.js"
+    "babel": "./node_modules/.bin/babel cskvpp.js --out-file index.js",
+    "prepublish": "npm run babel"
   },
   "repository": {
     "type": "git",
