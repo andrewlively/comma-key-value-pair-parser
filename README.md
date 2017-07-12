@@ -1,7 +1,7 @@
 Comma Separated Key-Value Pair Parser (cskvpp)
 ==============================================
 
-Small utility to stringify and parse comma separated key-value pairs
+Small utility to stringify and parse delimiter-separated key-value pairs
 
 ## Example
 ```javascript
